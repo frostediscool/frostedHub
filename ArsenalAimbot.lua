@@ -1,5 +1,7 @@
 local UIS = game.UserInputService
 local camera = game.CurrentCamera
+local TS = game.TweenService
+local tweenInfo = TweenInfo.new(0.25)
 
 function getClosest()
     local closestDistance = math.huge()
@@ -13,14 +15,16 @@ function getClosest()
             end
         end
     end
+    return closestPlayer
 end
 
 UIS.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton2 then
         _G.aim = True
         while wait() do
-            camera.CFrame = CFrame.new(camera.Position, getClosest().Head.Position)
-            if _G.aim == false then return end
+            local tween = TS:Create(camera, tweenInfo, {CFrame = CFrame.new(camera.CFrame.Position, getClosest().Character.Head.Position)}
+            tween:Play()
+            if _G.aim == false then tween:Cancel() return end
         end
     end
 end)
