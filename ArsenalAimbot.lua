@@ -1,37 +1,37 @@
-local UIS = game.UserInputService
-local camera = game.CurrentCamera
-local TS = game.TweenService
-local tweenInfo = TweenInfo.new(0.25)
+    local UIS = game.UserInputService
+    local camera = game.CurrentCamera
+    local TS = game.TweenService
+    local tweenInfo = TweenInfo.new(0.25)
 
-function getClosest()
-    local closestDistance = math.huge()
-    local closestPlayer = nil
-    for i,v in pairs(game.Players:GetChildren()) do
-        if v ∼= game.Players.LocalPlayer and v.Team ∼= game.Players.LocalPlayer.Team then
-            local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart - v.Character.HumanoidRootPart).magnitude
-            if distance < closestDistance then
-                closestDistance = distance
-                closestPlayer = v
+    function getClosest()
+        local closestDistance = math.huge()
+        local closestPlayer = nil
+        for i,v in pairs(game.Players:GetChildren()) do
+            if v ∼= game.Players.LocalPlayer and v.Team ∼= game.Players.LocalPlayer.Team then
+                local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart - v.Character.HumanoidRootPart).magnitude
+                if distance < closestDistance then
+                    closestDistance = distance
+                    closestPlayer = v
+                end
             end
         end
+        return closestPlayer
     end
-    return closestPlayer
-end
 
-UIS.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton2 then
-        _G.aim = True
-        while wait() do
-            local tween = TS:Create(camera, tweenInfo, {CFrame = CFrame.new(camera.CFrame.Position, getClosest().Character.Head.Position)}
-            tween:Play()
-            if _G.aim == false then tween:Cancel() return end
+    UIS.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton2 then
+            _G.aim = True
+            while wait() do
+                local tween = TS:Create(camera, tweenInfo, {CFrame = CFrame.new(camera.CFrame.Position, getClosest().Character.Head.Position)})
+                tween:Play()
+                if _G.aim == false then tween:Cancel() return end
+            end
         end
-    end
-end)
-UIS.inputEnded:Connect(function(input))
-    if input.UserInputType == Enum.UserInputType.MouseButton2 then
-        _G.aim = false
-    end
-end)
+    end)
+    UIS.inputEnded:Connect(function(input))
+        if input.UserInputType == Enum.UserInputType.MouseButton2 then
+            _G.aim = false
+        end
+    end)
 
--- aimbot above done.
+    -- aimbot above done.
