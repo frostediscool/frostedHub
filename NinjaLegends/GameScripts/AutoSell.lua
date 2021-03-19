@@ -4,5 +4,5 @@ while true do
     player.CFrame = CFrame.new(71, 2, -47)
     wait(0.3)
     player.CFrame = cfbeforetp
-    wait(2)
+    wait(3)
 end
