@@ -14,6 +14,8 @@ a:Button("AntiAfk", function()
     end)
 end)
 
+a:DestoryGui()
+
 b:Button("BuyAllBelts", function()
     local A_1 = "buyAllBelts"
     local A_2 = "Ground"
@@ -53,4 +55,26 @@ c:Button("AutoSwing", function()
         Event:FireServer(A_1)
         wait(0.5)
     end
+end)
+
+c:Button("CollectHoops", function()
+    local rootpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local cfbeforetp = rootpart.CFrame
+    for i,v in pairs(game.workspace.Hoops:GetChildren()) do
+    rootpart.CFrame = v.CFrame
+    wait(0.3)
+    end
+    wait(0.1)
+    rootpart.CFrame = cfbeforetp
+end)
+
+c:Button("UnlockAllIslands", function()
+    for i,v in pairs(game.Workspace.islandUnlockParts:GetChildren()) do
+        local rootpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local cfbeforetp = rootpart.CFrame
+        rootpart.CFrame = v.CFrame
+        wait(0.3)
+        end
+        wait(1)
+        rootpart.CFrame = cfbeforetp
 end)
