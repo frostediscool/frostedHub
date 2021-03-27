@@ -1,12 +1,13 @@
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/AikaV3rm/UiLib/master/Lib.lua')))()
-local w = w:CreateWindow("frostedHub")
 
-local a = w:CreateWindow("Saber Simulator")
-local b = w:CreateWindow("AutoFarm")
+local w = library:CreateWindow("frostedHub")
+
+local a = w:CreateFolder("Saber Simulator")
+local b = w:CreateFolder("AutoFarm")
 local c = w:CreateFolder("Shop")
 local d = w:CreateFolder("Flags")
 
-a:Button("AntiAfk",function()
+a:Button("AntiAFK",function()
         local vu = game:GetService("VirtualUser")
         game:GetService("Players").LocalPlayer.Idled:connect(function()
         vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
@@ -43,12 +44,12 @@ b:Button("AutoSell",function()
 end)
 
 b:Button("DailyReward", function()
-    local player = game.Players.LocalPlayer.Character.HumanoidRootPart
-    local cfbeforetp = player.CFrame
-    player.CFrame = CFrame.new(498, 183, 133)
-    wait(0.3)
-    player.CFrame = cfbeforetp
-    wait(3)
+        local player = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local cfbeforetp = player.CFrame
+        player.CFrame = CFrame.new(498, 183, 133)
+        wait(0.3)
+        player.CFrame = cfbeforetp
+        wait(3)
 end)
 
 c:Button("BuyAllSwords",function()
@@ -67,6 +68,16 @@ c:Button("BuyAllDNA", function()
     Event:InvokeServer()
 end)
 
+c:Button("BuyJumpBoosts", function()
+    local A_1 = "JumpBoosts"
+    local Event = game:GetService("ReplicatedStorage").Events.BuyAll
+    Event:FireServer(A_1)
+
+    local Event = game:GetService("ReplicatedStorage").Events.UpdateData
+    Event:InvokeServer()
+end)
+
+--[[
 b:Dropdown("Eggs",{"WoodenEgg","B","C"},true,function()
     local A_1 = game:GetService("ReplicatedStorage").Eggs["Wooden Egg"]
     local A_2 = 1
@@ -76,23 +87,25 @@ b:Dropdown("Eggs",{"WoodenEgg","B","C"},true,function()
     local Event = game:GetService("ReplicatedStorage").Events.UpdateData
     Event:InvokeServer()
 end)
+work on later
+--]]
 
 d:Button("Flag 1", function()
-    local player = game.Players.LocalPlayer.Character.HumanoidRootPart
-    local cfbeforetp = player.CFrame
-    player.CFrame = CFrame.new(630, 436, -102)
-    wait(10)
-    player.CFrame = cfbeforetp
-    wait(3)
+        local player = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local cfbeforetp = player.CFrame
+        player.CFrame = CFrame.new(630, 436, -102)
+        wait(10)
+        player.CFrame = cfbeforetp
+        wait(3)
 end)
 
 d:Button("Flag 2", function()
-    local player = game.Players.LocalPlayer.Character.HumanoidRootPart
-    local cfbeforetp = player.CFrame
-    player.CFrame = CFrame.new(439, 245, -258)
-    wait(10)
-    player.CFrame = cfbeforetp
-    wait(3)
+        local player = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local cfbeforetp = player.CFrame
+        player.CFrame = CFrame.new(439, 245, -258)
+        wait(10)
+        player.CFrame = cfbeforetp
+        wait(3)
 end)
 
 a:DestroyGui()
