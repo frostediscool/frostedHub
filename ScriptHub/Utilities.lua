@@ -1,4 +1,3 @@
--- Useful stuff i use for my UIs and Scripts
 local Utilities = {}
 local PS = game:GetService("Players")
 
@@ -107,14 +106,6 @@ end
 
 function Utilities:Teleport(x,y,z)
     PS.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(x,y,z)
-end
-
-function Utilities:SendNotification()
-    game:GetService("StarterGui"):SetCore("SendNotification",{
-        Title = frostedHub;
-        Text = Hope you enjoy exploiting.;
-        Duration = 5;
-    })
 end
 
 return Utilities
