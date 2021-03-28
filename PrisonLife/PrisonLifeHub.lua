@@ -34,6 +34,10 @@ b:Button("Crude Hammer", function()
     end
 end)
 
+b:Button("M9", function()
+    game.Workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+end)
+
 c:Button("NeutralTeam", function()
     local A_1 = "Medium stone grey"
     local Event = game:GetService("Workspace").Remote.TeamEvent
