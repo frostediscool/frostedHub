@@ -1,1 +1,0 @@
-game.Workspace.Prison_Cellblock.Cells_B:Destroy()
