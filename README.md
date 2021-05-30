@@ -1,3 +1,5 @@
-hi here loadstring for frostedhub xd
+Vividly
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/frostediscool/frostedHub/master/ScriptHub/Loader.lua"))()
+----------------------------------------------------
+
+Loadstring: loadstring(game:HttpGet("https://raw.githubusercontent.com/frostediscool/Vividly/master/ScriptHub/Loader.lua")()
